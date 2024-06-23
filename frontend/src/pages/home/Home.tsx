@@ -13,7 +13,7 @@ export function Home() {
           Nessa página iremos explorar ferramentas de desenvolvimetno do NodeJS, apresentando funcionalidades importantes como CRUD completo e sistema de administração.
         </p>
         <Link to="/register">
-         <Button className="mt-5 py-6 px-10 bg-purple-600 hover:bg-purple-900">Cadastrar</Button>
+         <Button className="mt-5 py-6 px-10 bg-purple-600 hover:bg-purple-900 text-base">Cadastrar</Button>
         </Link>
       </Card>
     </div>

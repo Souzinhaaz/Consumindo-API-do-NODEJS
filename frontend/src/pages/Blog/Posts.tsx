@@ -13,7 +13,7 @@ export function Posts() {
           Essa é a nossa sessão de posts dos usuários, queira adicionar um post a nossa página.
         </p>
         <Link to="/newpost">
-         <Button className="mt-5 py-6 px-10 bg-purple-600 hover:bg-purple-900">Adicionar Post</Button>
+         <Button className="mt-5 py-6 px-10 bg-purple-600 hover:bg-purple-900 text-base">Adicionar Post</Button>
         </Link>
       </Card>
     </div>

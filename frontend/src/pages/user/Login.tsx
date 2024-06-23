@@ -127,7 +127,7 @@ export function Login() {
                       Carregando
                     </Button>
                   ) : (
-                    <Button type="submit">Entrar</Button>
+                    <Button type="submit" className="bg-purple-600 hover:bg-purple-900 text-base">Entrar</Button>
                   )}
                 </div>
               </div>

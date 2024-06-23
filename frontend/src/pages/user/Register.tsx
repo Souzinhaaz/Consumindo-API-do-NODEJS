@@ -172,7 +172,7 @@ export function Register() {
                       Carregando
                     </Button>
                   ) : (
-                    <Button type="submit">Registrar</Button>
+                    <Button type="submit" className="bg-purple-600 hover:bg-purple-900 text-base">Registrar</Button>
                   )}
                 </div>
               </div>
