@@ -15,12 +15,11 @@ import {
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import { ChangeEvent, FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -28,24 +27,26 @@ export function Login() {
   const [button, setButton] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const user = { email, password };
 
-    axios
-      .post("http://localhost:3000/auth/users/login", JSON.stringify(user), {
-        headers: {
-          "Content-Type": "application/json",
-        },
+    try {
+      const response = await axios.post("http://localhost:3000/auth/users/login", 
+        JSON.stringify(user), {
+          headers: {
+            "Content-Type": "application/json",
+          },
       })
-      .then((response) => {
-        btnLoad();
-        console.log(response.data);
-        navigate("/posts", {state: response.data})
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+
+      const data = await response.data;
+
+      btnLoad();
+      console.log(data)
+      navigate("/posts")
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const btnLoad = () => {
