@@ -14,6 +14,7 @@ import {
 } from "../../components/ui/breadcrumb";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
+import { Message } from "../../components/layout/Message";
 import { ChangeEvent, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
@@ -26,6 +27,14 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [button, setButton] = useState(false);
   const navigate = useNavigate();
+
+  let message = "";
+  if (localStorage.getItem("msg")) {{
+    message = localStorage.getItem("msg") ?? "";
+    setTimeout(() => {
+      localStorage.removeItem("msg");
+    }, 3000)
+  }}
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -60,6 +69,7 @@ export function Login() {
     <div className="flex items-center justify-center mt-10 flex-col px-4">
       <div className="w-full">
         <Breadcrumb className="pb-2 max-w-2xl m-auto">
+        <Message type="error" msg={message} />
           <BreadcrumbList className="flex items-center">
             <BreadcrumbItem>
               <Link className="text-xl" to="/">
