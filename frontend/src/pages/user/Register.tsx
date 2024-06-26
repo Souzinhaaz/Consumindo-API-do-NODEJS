@@ -35,7 +35,7 @@ export function Register() {
     const user = { name, email, password, passwordConfirmation };
 
     axios
-      .post("http://localhost:3000/auth/users/register", JSON.stringify(user), {
+      .post("http://localhost:3000/auth/register", JSON.stringify(user), {
         headers: {
           "Content-Type": "application/json",
         },

@@ -32,17 +32,17 @@ export function Login() {
     const user = { email, password };
 
     try {
-      const response = await axios.post("http://localhost:3000/auth/users/login", 
+      const response = await axios.post("http://localhost:3000/auth/login", 
         JSON.stringify(user), {
           headers: {
             "Content-Type": "application/json",
           },
       })
-
       const data = await response.data;
 
       btnLoad();
-      console.log(data)
+      localStorage.setItem("token", data.token)
+      localStorage.setItem("message", data.msg)
       navigate("/posts")
     } catch (err) {
       console.error(err);
