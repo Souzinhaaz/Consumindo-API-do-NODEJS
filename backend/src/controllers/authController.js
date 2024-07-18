@@ -80,7 +80,8 @@ module.exports = {
         {
           id: user._id,
         },
-        secret
+        secret,
+        {expiresIn: 120}
       );
 
       return res

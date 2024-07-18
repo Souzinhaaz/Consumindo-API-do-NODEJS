@@ -25,6 +25,11 @@ export function Posts() {
     .then(() => {
       const storedMessage = localStorage.getItem("message") ?? "";
       setMessage(storedMessage)
+      if (storedMessage) {
+        setTimeout(() => {
+          localStorage.removeItem("message"); // Remove the message after setting it in state
+        }, 3000)
+      }
     })
     .catch((err) => console.log(err))
   }, [])
